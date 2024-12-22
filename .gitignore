@@ -22,3 +22,6 @@ error-screenshots/
 webpack.generated.js
 /.prettierrc.json
 /eclipse-formatter.xml
+
+# configuration and keys
+/.env
