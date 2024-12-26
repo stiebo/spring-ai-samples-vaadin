@@ -9,13 +9,14 @@ import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
+import jakarta.annotation.security.PermitAll;
 import jakarta.annotation.security.RolesAllowed;
 import org.vaadin.lineawesome.LineAwesomeIconUrl;
 
-@PageTitle("Empty")
-@Route("")
-@Menu(order = 0, icon = LineAwesomeIconUrl.FILE)
-@AnonymousAllowed
+//@PageTitle("Empty")
+//@Route("empty")
+//@Menu(order = 5, icon = LineAwesomeIconUrl.FILE)
+//@PermitAll
 public class EmptyView extends Composite<VerticalLayout> {
 
     public EmptyView() {
