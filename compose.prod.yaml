@@ -3,7 +3,7 @@ services:
     #build:
     #context: ./   #builds the docker image from Dockerfile in current directory
     #dockerfile: Dockerfile
-    image: stiebo/spring-ai-samples-vaadin:0.0.1-SNAPSHOT
+    image: spring-ai-samples-vaadin
     env_file:
       .env
     environment:
