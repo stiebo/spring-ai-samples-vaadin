@@ -35,19 +35,19 @@ public class AppStartup {
             }
         }
 
-        // create at least one Admin
+        // create at least one User
         if (userRepository.count() == 0) {
-            User admin = new User()
-                    .setName("Admin")
-                    .setUsername("admin")
-                    .setPassword(passwordEncoder.encode("admin")); // Demo only!
-            Optional<Role> adminRoleOpt = roleRepository.findByName(RoleName.ADMIN);
-            if (adminRoleOpt.isPresent()) {
-                admin.setRoles(Set.of(adminRoleOpt.get()));
+            User user = new User()
+                    .setName("User")
+                    .setUsername("user")
+                    .setPassword(passwordEncoder.encode("user")); // Demo only!
+            Optional<Role> userRoleOpt = roleRepository.findByName(RoleName.USER);
+            if (userRoleOpt.isPresent()) {
+                user.setRoles(Set.of(userRoleOpt.get()));
             } else {
-                throw new RuntimeException("Role ADMIN not found.");
+                throw new RuntimeException("Role USER not found.");
             }
-            userRepository.save(admin);
+            userRepository.save(user);
         }
     }
 }
