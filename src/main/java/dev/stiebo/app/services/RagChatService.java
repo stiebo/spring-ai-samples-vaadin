@@ -51,32 +51,8 @@ public class RagChatService {
         }
         TikaDocumentReader reader = new TikaDocumentReader(resource);
         List<Document> documentList = new TokenTextSplitter().apply(reader.read());
-        vectorStore.write(documentList);
-//        vectorStore.write(
-//                new TokenTextSplitter().apply(
-//                        new TikaDocumentReader(resource).read()));
-//        System.out.println("done writing to vectorstore");
+        vectorStore.add(documentList);
     }
-
-//    public void addDocument(FileResource fileResource) throws FileErrorException {
-//        utilityService.confirmPdfDocumentType(fileResource);
-//        if (existsByDocumentName(fileResource.fileName())) {
-//            throw new FileErrorException("Document with that name already exists in database");
-//        }
-//        log.info("Loading doc into Vectorstore");
-//        PdfDocumentReaderConfig config = PdfDocumentReaderConfig.builder()
-//                .withPageExtractedTextFormatter(new ExtractedTextFormatter.Builder()
-//                        .withNumberOfBottomTextLinesToDelete(0)
-//                        .build())
-//                .withPagesPerDocument(1)
-//                .build();
-//
-//        PagePdfDocumentReader pagePdfDocumentReader = new PagePdfDocumentReader(fileResource.resource(), config);
-//        TokenTextSplitter tokenTextSplitter = new TokenTextSplitter();
-//        List<Document> docs = tokenTextSplitter.apply(pagePdfDocumentReader.get());
-//        vectorStore.accept(docs);
-//        log.info("Vectorstore is ready");
-//    }
 
     public List<DocumentDto> listDocuments() {
         return jdbcClient.sql(
